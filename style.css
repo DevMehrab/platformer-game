@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Silkscreen', cursive;
+	background-color: white;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+}
+.canvas{
+	height: 100vh;
+	width: 100vw;
+	background-image: url('bg.jpg');
+	background-size: cover;
+	background-repeat: repeatY;
+	position: relative;
+	animation: sky 40s linear infinite;
+}
+.ground{
+	background-image: url('./tiles/Tile_12.png');
+	background-repeat: repeat;
+	background-size:auto;
+	z-index: 100;
+	height: 30%;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+.surface{
+	background-image:url('./tiles/Tile_02.png') ;
+	background-repeat: repeat;
+	background-size:auto;
+	height: 32px;
+	position: relative;
+}
+.character{
+	background-image: url('./img/sprites/woodcutter/Woodcutter_idle.png');
+	height: 48px;
+	width: calc(192px/4);
+	position: absolute;
+	top: -48px;
+	animation: idle .4s steps(4) infinite;
+}
+.attack1{
+	background-image :url('./img/sprites/woodcutter/Woodcutter_attack2.png');
+    animation : attack .4s steps(6) 1;
+    width : calc(288px/6);
+}
+.attack2{
+	background-image :url('./img/sprites/woodcutter/Woodcutter_attack1.png');
+    animation : attack .4s steps(6) 1;
+    width : calc(288px/6);
+}
+.moveRight{
+	background-image :url('./img/sprites/woodcutter/Woodcutter_walk.png');
+    animation : moveright .4s steps(6) infinite;
+    width : calc(288px/6);
+}
+.moveLeft{
+	background-image :url('./img/sprites/woodcutter/Woodcutter_walk.png');
+    animation : moveright .4s steps(6) infinite;
+    width : calc(288px/6);
+}
+
+.rotate{
+	transform: rotateY(180deg);
+}
+.hero{
+	position: absolute;
+	left: 10px;
+}
+@keyframes idle{
+	from{
+		background-position: 192px;
+	}
+	to{
+		background-position: 0px;
+	}
+}
+@keyframes attack{
+	from{
+		background-position: 288px;
+	}
+	to{
+		background-position: 0px;
+	}
+}
+@keyframes moveright{
+	from{
+		background-position: 288px;
+	}
+	to{
+		background-position: 0px;
+	}
+}
+@keyframes sky{
+	from{
+		background-position: -100%;
+	}
+	to{
+		background-position: 100%;
+	}
+}
+
+
+
+@media only screen and (max-width: 500px) {
+	body {
+		padding-top: 10px;
+		justify-content: flex-start;
+	}
+}
