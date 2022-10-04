@@ -57,6 +57,3 @@ function moveLeft() {
     playerPosition = parseInt(window.getComputedStyle(hero).getPropertyValue("left"))
 }
 
-// setInterval(() => {
-//     console.log(playerPosition);
-// }, 10);
