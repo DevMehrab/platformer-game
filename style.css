@@ -19,11 +19,16 @@ body {
 .canvas{
 	height: 100vh;
 	width: 100vw;
-	background-image: url('bg.jpg');
-	background-size: cover;
-	background-repeat: repeatY;
+	
 	position: relative;
+}
+.sky{
 	animation: sky 40s linear infinite;
+	background-image: url('bg.jpg');
+	background-size: 100%;
+	background-repeat: repeat;
+	height: 100vh;
+	width: 100vw;
 }
 .ground{
 	background-image: url('./tiles/Tile_12.png');
@@ -43,36 +48,28 @@ body {
 	position: relative;
 }
 .character{
-	background-image: url('./img/sprites/woodcutter/Woodcutter_idle.png');
 	height: 48px;
 	width: calc(192px/4);
 	position: absolute;
 	top: -48px;
-	animation: idle .4s steps(4) infinite;
 }
-.attack1{
-	background-image :url('./img/sprites/woodcutter/Woodcutter_attack2.png');
+.idle{
+	animation: idle .3s steps(4) infinite;
+}
+.attack{
     animation : attack .4s steps(6) 1;
-    width : calc(288px/6);
-}
-.attack2{
-	background-image :url('./img/sprites/woodcutter/Woodcutter_attack1.png');
-    animation : attack .4s steps(6) 1;
-    width : calc(288px/6);
-}
-.moveRight{
-	background-image :url('./img/sprites/woodcutter/Woodcutter_walk.png');
-    animation : moveright .4s steps(6) infinite;
-    width : calc(288px/6);
-}
-.moveLeft{
-	background-image :url('./img/sprites/woodcutter/Woodcutter_walk.png');
-    animation : moveright .4s steps(6) infinite;
     width : calc(288px/6);
 }
 
+.move{
+    animation : move .4s steps(6) infinite;
+    width : calc(288px/6);
+}
+.jump{
+	animation: jump .4s steps(6) 1;
+}
 .rotate{
-	transform: rotateY(180deg);
+	transform: rotateY(180deg) translateX(-40px);
 }
 .hero{
 	position: absolute;
@@ -94,7 +91,7 @@ body {
 		background-position: 0px;
 	}
 }
-@keyframes moveright{
+@keyframes move{
 	from{
 		background-position: 288px;
 	}
@@ -104,18 +101,26 @@ body {
 }
 @keyframes sky{
 	from{
-		background-position: -100%;
+		background-position: 1000px;
 	}
 	to{
-		background-position: 100%;
+		background-position: -1000px;
 	}
 }
-
-
-
-@media only screen and (max-width: 500px) {
-	body {
-		padding-top: 10px;
-		justify-content: flex-start;
+@keyframes jump{
+	0%{
+		bottom: 32px;
+	}
+	25%{
+		bottom: 56px;
+	}
+	50%{
+		bottom:78px;
+	}
+	75%{
+		bottom: 56px;
+	}
+	100%{
+		bottom: 32px;
 	}
 }
