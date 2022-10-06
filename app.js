@@ -13,6 +13,7 @@ let playerPositionBottom = parseInt(window.getComputedStyle(hero).getPropertyVal
 // key event listening
 window.addEventListener('keydown', function (e) {
     if (e.key === "ArrowRight") {
+        
         moveRight()
         character.classList.remove('rotate')
     }
